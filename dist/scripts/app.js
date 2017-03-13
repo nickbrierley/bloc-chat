@@ -9,6 +9,7 @@
         $stateProvider 
             .state('home', {
                 url: '/',
+                contoller: 'HomeCtrl as home',
                 templateUrl: '/templates/home.html'
         });
     }
