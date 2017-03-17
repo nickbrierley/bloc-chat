@@ -3,6 +3,7 @@
         this.rooms = Room.all;
         this.addRoom = function() {
                 Room.add(this.newRoom);
+                this.newRoom = null;
             };
     }
        
