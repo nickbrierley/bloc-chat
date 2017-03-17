@@ -1,8 +1,12 @@
-<div class="sidebar" id="sidebar">
+<div class="sidebar">
     <h1>Bloc Chat</h1>
     <div ng-repeat="room in home.rooms">
-        <h3>{{ room.$value }}</h3>
+        <h3>{{ room.name }}</h3>
     </div>
+    <form>
+        <input type="text" placeholder="New Room" ng-model="home.newRoom.name" ng-click="home.addRoom()">
+        <input type="submit" value="Submit" ng-click="home.submit()" onclick="reset()">
+    </form>
 </div>
 <div class="chat" id="chat">
 </div>
