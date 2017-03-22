@@ -9,15 +9,11 @@
 }
 
 input {
-    border: 2px solid black;
+    border: 2px solid gray;
     border-radius: 10px;
     text-align: center;
     padding: 3%;
     max-width: 65%;
-}
-
-.chat {
-    margin-left: 20%;
 }
 
 h1 {
@@ -25,6 +21,13 @@ h1 {
     padding-top: 10%;
 }
 
-.chat h1 {
-    padding-top: 2%;
+.chat {
+    margin-top: 0px;
+    margin-left: 20%;
+    position: absolute;
+    text-align: center;
 }
+
+
+
+
