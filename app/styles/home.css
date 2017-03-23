@@ -6,10 +6,20 @@
     text-align: center;
     min-height: 100%;
     position: absolute;
+    
 }
 
+.sidebar h1 {
+    cursor: context-menu;
+}
+
+.sidebar h3 {
+    cursor: pointer;
+}
+
+
 input {
-    border: 2px solid black;
+    border: 2px solid gray;
     border-radius: 10px;
     text-align: center;
     padding: 3%;
@@ -18,13 +28,15 @@ input {
 
 .chat {
     margin-left: 20%;
+    position: absolute;
+    text-align: center;
+    width: 80%;
 }
 
-h1 {
-    margin-top: 0px;
-    padding-top: 10%;
+.messages {
+    column-count: 3;
 }
 
-.chat h1 {
-    padding-top: 2%;
+.messages:nth-child(even) {
+    background-color: lightgray;
 }

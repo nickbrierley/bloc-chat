@@ -1,12 +1,22 @@
-<div class="sidebar">
-    <h1>Bloc Chat</h1>
-    <div ng-repeat="room in home.rooms">
-        <h3>{{ room.name }}</h3>
+<div class="wrapper">
+    <div class="sidebar">
+        <h1>Bloc Chat</h1>
+        <div ng-repeat="room in home.rooms">
+            <h3 class="roomname" ng-click="home.setCurrentRoom(room)">{{ room.name }}</h3>
+        </div>
+        <div class="form-wrap">
+            <form>
+                <input type="text" placeholder="New Room" ng-model="home.newRoom.name">
+                <input type="submit" value="Submit" ng-click="home.addRoom()">
+            </form>
+        </div>
     </div>
-    <form>
-        <input type="text" placeholder="New Room" ng-model="home.newRoom.name">
-        <input type="submit" value="Submit" onclick="reset()" ng-click="home.addRoom()">
-    </form>
-</div>
-<div class="chat" id="chat">
+    <div class="chat">
+        <h1>{{ home.currentRoom.name }}</h1>
+        <div class="messages" ng-repeat="message in home.messages">
+            <p id="content">{{ message.content }}</p>
+            <p id="sentat">{{ message.sentAt }}</p>
+            <p id="username">{{ message.username }}</p>
+        </div>
+    </div>
 </div>
