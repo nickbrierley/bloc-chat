@@ -2,8 +2,9 @@
     function HomeCtrl(Room, Message, $cookies) {
         this.rooms = Room.all;
         this.currentRoom = null;
-        this.show = false;
-
+        this.currentUser = $cookies.get('blocChatCurrentUser');
+        console.log(this.currentUser);
+        
         this.addRoom = function() {
             Room.add(this.newRoom);
             this.newRoom = null;
@@ -17,7 +18,9 @@
         this.setUsername = function() {
             $cookies.put('blocChatCurrentUser', this.username);
             this.show = true;
-            this.username = null;
+            this.username = null; 
+            this.currentUser = $cookies.get('blocChatCurrentUser');
+            console.log(this.currentUser);
         }
     }
 

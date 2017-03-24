@@ -1,14 +1,14 @@
 <div class="wrapper">
     <div class="sidebar">
         <h1>Bloc Chat</h1>
-        <div ng-repeat="room in home.rooms" ng-hide="home.show == false">
+        <div ng-repeat="room in home.rooms" ng-hide="home.currentUser == null">
             <h3 class="roomname" ng-click="home.setCurrentRoom(room)" ng-disabled="home.username == null">{{ room.name }}</h3>
         </div>
         <div class="form-wrap">
-            <div ng-hide="home.show == false">
+            <div ng-hide="home.currentUser == null">
                 <form>
                     <input type="text" placeholder="New Room" ng-model="home.newRoom.name">
-                    <input type="submit" value="Submit" ng-click="home.addRoom()" ng-hide="home.show == false">
+                    <input type="submit" value="Submit" ng-click="home.addRoom()" ng-hide="home.currentUser == null">
                 </form>
             </div>
             <form>
