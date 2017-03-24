@@ -1,17 +1,23 @@
 <div class="wrapper">
     <div class="sidebar">
         <h1>Bloc Chat</h1>
-        <div ng-repeat="room in home.rooms">
-            <h3 class="roomname" ng-click="home.setCurrentRoom(room)">{{ room.name }}</h3>
+        <div ng-repeat="room in home.rooms" ng-hide="home.show == false">
+            <h3 class="roomname" ng-click="home.setCurrentRoom(room)" ng-disabled="home.username == null">{{ room.name }}</h3>
         </div>
         <div class="form-wrap">
+            <div ng-hide="home.show == false">
+                <form>
+                    <input type="text" placeholder="New Room" ng-model="home.newRoom.name">
+                    <input type="submit" value="Submit" ng-click="home.addRoom()" ng-hide="home.show == false">
+                </form>
+            </div>
             <form>
-                <input type="text" placeholder="New Room" ng-model="home.newRoom.name">
-                <input type="submit" value="Submit" ng-click="home.addRoom()">
+                <input type="text" placeholder="Username" autofocus required ng-model="home.username">
+                <input type="submit" ng-click="home.setUsername()" ng-disabled="home.username == null" ng-model="home.show">
             </form>
         </div>
     </div>
-    <div class="chat">
+    <div class="chat" ng-disabled="home.username == null">
         <h1>{{ home.currentRoom.name }}</h1>
         <div class="messages" ng-repeat="message in home.messages">
             <p id="content">{{ message.content }}</p>
