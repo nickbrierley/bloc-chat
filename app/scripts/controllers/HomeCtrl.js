@@ -1,9 +1,10 @@
 (function() {
-    function HomeCtrl(Room, Message) {
+    function HomeCtrl(Room, Message, $cookies) {
         this.rooms = Room.all;
         this.currentRoom = null;
-
-
+        this.currentUser = $cookies.get('blocChatCurrentUser');
+        console.log(this.currentUser);
+        
         this.addRoom = function() {
             Room.add(this.newRoom);
             this.newRoom = null;
@@ -13,9 +14,17 @@
             this.currentRoom = room;
             this.messages = Message.getByRoomId(this.currentRoom.$id);
         }
+        
+        this.setUsername = function() {
+            $cookies.put('blocChatCurrentUser', this.username);
+            this.show = true;
+            this.username = null; 
+            this.currentUser = $cookies.get('blocChatCurrentUser');
+            console.log(this.currentUser);
+        }
     }
 
     angular 
         .module('blocChat')
-        .controller('HomeCtrl', ['Room', 'Message', HomeCtrl]);
+        .controller('HomeCtrl', ['Room', 'Message', '$cookies', HomeCtrl]);
 })();
