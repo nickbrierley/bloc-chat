@@ -23,9 +23,9 @@
         <h1>{{ home.currentRoom.name }}</h1>
         <div class="messages" ng-repeat="message in home.messages">
             <p id="content"><b>{{ message.username }}</b><br>{{ message.content }}</p>
-            <p id="time">{{ message.sentAt }}</p>
+            <p id="time">{{ message.sentAt | date : "shortTime" }}</p>
         </div>
-        <form>
+        <form autocomplete="off">
             <input id="text" type="text" ng-model="home.newMessage.content">
             <input type="submit" ng-click="home.content()">
         </form>
