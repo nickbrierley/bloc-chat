@@ -3,7 +3,6 @@
         this.rooms = Room.all;
         this.currentRoom = null;
         this.currentUser = $cookies.get('blocChatCurrentUser');
-        console.log(this.currentUser);
         
         this.addRoom = function() {
             Room.add(this.newRoom);
@@ -17,10 +16,15 @@
         
         this.setUsername = function() {
             $cookies.put('blocChatCurrentUser', this.username);
-            this.show = true;
             this.username = null; 
             this.currentUser = $cookies.get('blocChatCurrentUser');
-            console.log(this.currentUser);
+        }
+        
+        this.content = function() {
+            this.newMessage.username = this.currentUser;
+            this.newMessage.roomId = this.currentRoom.$id;
+            Message.send(this.newMessage);
+            this.newMessage = null;
         }
     }
 

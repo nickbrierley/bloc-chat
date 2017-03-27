@@ -8,21 +8,26 @@
             <div ng-hide="home.currentUser == null">
                 <form>
                     <input type="text" placeholder="New Room" ng-model="home.newRoom.name">
-                    <input type="submit" value="Submit" ng-click="home.addRoom()" ng-hide="home.currentUser == null">
+                    <input type="submit" value="Submit" ng-click="home.addRoom()">
                 </form>
             </div>
-            <form>
-                <input type="text" placeholder="Username" autofocus required ng-model="home.username">
-                <input type="submit" ng-click="home.setUsername()" ng-disabled="home.username == null" ng-model="home.show">
-            </form>
+            <div ng-hide="home.currentUser">
+                <form>
+                    <input type="text" placeholder="Username" autofocus required ng-model="home.username">
+                    <input type="submit" ng-click="home.setUsername()" ng-disabled="home.username == null">
+                </form>
+            </div>
         </div>
     </div>
-    <div class="chat" ng-disabled="home.username == null">
+    <div class="chat" ng-hide="home.currentRoom == null">
         <h1>{{ home.currentRoom.name }}</h1>
         <div class="messages" ng-repeat="message in home.messages">
-            <p id="content">{{ message.content }}</p>
-            <p id="sentat">{{ message.sentAt }}</p>
-            <p id="username">{{ message.username }}</p>
+            <p id="content"><b>{{ message.username }}</b><br>{{ message.content }}</p>
+            <p id="time">{{ message.sentAt }}</p>
         </div>
+        <form>
+            <input id="text" type="text" ng-model="home.newMessage.content">
+            <input type="submit" ng-click="home.content()">
+        </form>
     </div>
 </div>
