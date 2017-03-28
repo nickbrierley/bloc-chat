@@ -1,70 +1,70 @@
-.sidebar {
-    background-color: gray;
-    margin: 0px;
-    float: left;
-    width: 20%;
-    text-align: center;
-    min-height: 100%;
-    position: absolute;
-    
+.wrapper {
+    height: 100%;
 }
 
-.sidebar h1 {
-    cursor: context-menu;
+.sidebar {
+    background-color: rgb(66, 130, 193);
+    width: 20%;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    overflow-y: auto;
+}
+
+.sidebar h1, h3 {
+    padding-left: 5%;
+}
+
+h1 {
+    cursor: default;
 }
 
 .sidebar h3 {
     cursor: pointer;
 }
 
-
-.form-wrap input {
-    border: 2px solid gray;
-    border-radius: 10px;
-    text-align: center;
-    padding: 3%;
-    max-width: 65%;
+.chat {
+    background-color: rgb(217, 225, 226);
+    width: 80%;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    position: absolute;
+    overflow-y: auto;
 }
 
-.chat {
-    margin-left: 20%;
-    position: absolute;
+.chat h1 {
     text-align: center;
-    width: 80%;
+    cursor: default;
 }
 
 .messages {
-    display: table;
-    width: 100%;
-}
-
-.messages:nth-child(even) {
-    background-color: lightgray;
-}
-
-#content, #nametime{
-    display: table-cell;
-}
-
-#content{
-    width: 80%;
-    text-align: left;
-    padding-left: 5%;
-    padding-top: 1%;
-    padding-bottom: 1%;
-}
-
-#nametime {
-    text-align: right;
-    padding-right: 5%;
-}
-
-.chat input {
-    border: 2px solid gray;
+    background-color: rgba(66, 130, 193, .5);
     border-radius: 10px;
-    padding: 1%;
+    width: 90%;
+    word-wrap: break-word;
+    margin-left: 5%;
+}
+
+#content, #time {
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
 #text {
-    width: 90%;
+    width: 80%;
+    margin-left: 5%;
+    border-radius: 10px;
+    padding: 2%;
+}
+
+#submit {
+    border-radius: 10px;
+    width: 10%;
+    padding: 2%;
+    text-align: center;
+}
+
+.messages:nth-child(odd) {
+    background-color: lightgray;
 }

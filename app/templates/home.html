@@ -6,28 +6,30 @@
         </div>
         <div class="form-wrap">
             <div ng-hide="home.currentUser == null">
-                <form>
-                    <input type="text" placeholder="New Room" ng-model="home.newRoom.name">
-                    <input type="submit" value="Submit" ng-click="home.addRoom()">
+                <form autocomplete="off">
+                    <input id="text" type="text" placeholder="New Room" ng-model="home.newRoom.name">
+                    <input id="submit" type="submit" value="&#10004;" ng-click="home.addRoom()">
                 </form>
             </div>
             <div ng-hide="home.currentUser">
-                <form>
-                    <input type="text" placeholder="Username" autofocus required ng-model="home.username">
-                    <input type="submit" ng-click="home.setUsername()" ng-disabled="home.username == null">
+                <form autocomplete="off">
+                    <input id="text" type="text" placeholder="Username" autofocus required ng-model="home.username">
+                    <input id="submit" type="submit" value="&#10004;" ng-click="home.setUsername()" ng-disabled="home.username == null">
                 </form>
             </div>
         </div>
     </div>
-    <div class="chat" ng-hide="home.currentRoom == null">
+    <div class="chat">
         <h1>{{ home.currentRoom.name }}</h1>
-        <div class="messages" ng-repeat="message in home.messages">
+        <div class="messages" ng-repeat="message in home.messages" ng-hide="home.currentRoom == null">
             <p id="content"><b>{{ message.username }}</b><br>{{ message.content }}</p>
             <p id="time">{{ message.sentAt | date : "shortTime" }}</p>
         </div>
-        <form autocomplete="off">
-            <input id="text" type="text" ng-model="home.newMessage.content">
-            <input type="submit" ng-click="home.content()">
-        </form>
+        <div class="footer" ng-hide="home.currentRoom == null">
+            <form autocomplete="off">
+                <input id="text" type="text" ng-model="home.newMessage.content">
+                <input id="submit" type="submit" value="&#10004;" ng-click="home.content()">
+            </form>
+        </div>
     </div>
 </div>
